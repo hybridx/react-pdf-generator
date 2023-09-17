@@ -21,6 +21,6 @@ jobs:
         if: success()
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with: 
-          folder: build
+          folder: dist
           token: ${{ secrets.GH_PAT }}
           branch: gh-pages
