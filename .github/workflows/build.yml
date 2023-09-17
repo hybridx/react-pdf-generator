@@ -1,8 +1,8 @@
 name: hybridX push process
-on:
+on: 
   workflow_dispatch:
   push:
-    branches:
+    branches: 
       - main
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - name: Deploy
         if: success()
         uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
+        with: 
           ACCESS_TOKEN: ${{ secrets.GH_PAT }}
           BRANCH: gh-pages
           FOLDER: dist
