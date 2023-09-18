@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'sanskrit';
+  src: local('./fonts/sanskrit-regular.ttf'),
+    url('./fonts/sanskrit-regular.ttf');
+}

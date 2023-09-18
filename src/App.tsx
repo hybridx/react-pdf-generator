@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="grid place-items-center">
-      <div className='mt-5'>Add your input</div>
+      <div className="mt-5">Add your input</div>
       <form
         className="border rounded-md m-5 p-5 bg-gray-100"
         onSubmit={(event) => {
@@ -41,6 +41,8 @@ function App() {
             id="name"
             placeholder="name"
             onChange={onChange}
+            pattern="^.*$"
+            required
           />
         </div>
         <div className="m-2 p-2">
@@ -53,7 +55,8 @@ function App() {
           <input
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             type="text"
-            pattern="\d{5}"
+            pattern="^\d{1,5}$"
+            required
             name="amount"
             id="amount"
             placeholder="100"
@@ -69,10 +72,48 @@ function App() {
           </button>
         </div>
       </form>
-      <div className="m-4 p-4 border" ref={targetRef}>
-        <h1>
-          This will be converted to pdf {name} with amount {amount}
-        </h1>
+      <div
+        className="m-4 p-4 w-[842px] h-[800px]"
+        ref={targetRef}
+        style={{
+          backgroundImage: `url('/ganpati-bg.jpg')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '842px 350px',
+        }}
+      >
+        <div className="ml-56 text-[#ddd]">
+          <h1
+            style={{
+              fontFamily: 'sanskrit',
+            }}
+            className="text-3xl"
+          >
+            Shree Ganeshaya Namah
+          </h1>
+          <h3 className="pt-4">
+            Thank you for your generous donation to the Ganapati Festival! Your
+            donation will help us to celebrate this important festival in a
+            special way. We are grateful for your support.
+          </h3>
+          <p className="pt-4">Donor Name: {name}</p>
+          <p className="pt-2">Donated Amount: {amount}</p>
+        </div>
+        <div
+          className="mt-[120px]"
+          style={{
+            height: '200px',
+            width: '842px',
+            marginLeft: '-1rem',
+          }}
+        >
+          <img
+            src="./parijat.jpeg"
+            alt="Parijat"
+            style={{
+              objectFit: 'cover',
+            }}
+          />
+        </div>
       </div>
     </div>
   );
