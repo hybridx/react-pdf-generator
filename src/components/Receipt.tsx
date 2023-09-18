@@ -8,14 +8,7 @@ export default function Receipt({
   return (
     <>
       <div className="ml-56 text-[#ddd]">
-        <h1
-          style={{
-            fontFamily: 'sanskrit',
-          }}
-          className="text-3xl"
-        >
-          Shree Ganeshaya Namah
-        </h1>
+        <h1 className="text-3xl flex justify-center font-[sanskrit]">Parijat Mitra Mandal</h1>
         <h3 className="pt-4">
           Thank you for your generous donation to the Ganapati Festival! Your
           donation will help us to celebrate this important festival in a
@@ -23,22 +16,14 @@ export default function Receipt({
         </h3>
         <p className="pt-4">Donor Name: {name}</p>
         <p className="pt-2">Donated Amount: {amount}</p>
+        <div className="ml-[400px]">
+          <p>Regards</p>
+          <p>Parijat Mitra Mandal</p>
+        </div>
       </div>
-      <div
-        className="mt-[120px]"
-        style={{
-          height: '200px',
-          width: '842px',
-          marginLeft: '-1rem',
-        }}
-      >
-        <img
-          src="./parijat.jpeg"
-          alt="Parijat"
-          style={{
-            objectFit: 'cover',
-          }}
-        />
+      <div className="grid justify-center text-[#ddd] mt-[2.75rem]">
+       <p> Reg No: MH 1761 / 2007 / F30370 Pune.</p>
+       <p className="text-xs text-[#ddd]">Receipt eligible for claim under Section 80G </p>
       </div>
     </>
   );
