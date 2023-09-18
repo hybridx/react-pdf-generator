@@ -78,12 +78,12 @@ function App() {
         </div>
       </form>
       <div
-        className="m-4 p-4 w-[842px] h-[400px]"
+        className="m-4 p-4 w-[842px] h-[380px]"
         ref={targetRef}
         style={{
           backgroundImage: `url('./ganpati-bg.jpg')`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '842px 350px',
+          backgroundSize: '842px 400px',
         }}
       >
         <Receipt name={name} amount={amount} />

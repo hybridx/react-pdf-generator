@@ -17,13 +17,7 @@ export default function Receipt({
           special way. We are grateful for your support.
         </h3>
         <div
-          className="pt-4 text-xl"
-          style={{
-            background: `linear-gradient(to right, #BF953F 1.28%, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%,#f6e27a 55%,#cb9b51 78%, #462523 100%)`,
-            color: 'transparent',
-            fontWeight: 700,
-            WebkitBackgroundClip: 'text',
-          }}
+          className="pt-4 text-xl text-[#F0E68C] font-bold"
         >
           <p>Donor Name: {name}</p>
           <p className="pt-2">Donated Amount: {amount} ₹</p>
