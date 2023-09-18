@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
-import { usePDF } from 'react-to-pdf';
+import generatePDF from 'react-to-pdf';
+import Receipt from './components/Receipt';
 
 function App() {
-  const [name, setName] = useState(null);
-  const [amount, setAmount] = useState(null);
-  const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState('');
+  const targetRef = useRef(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onChange = (event: any) => {
@@ -24,7 +25,9 @@ function App() {
         className="border rounded-md m-5 p-5 bg-gray-100"
         onSubmit={(event) => {
           event.preventDefault();
-          toPDF();
+          generatePDF(targetRef, {filename: `${name}.pdf`})
+          setName('');
+          setAmount('');
         }}
       >
         <div className="m-2 p-2">
@@ -39,6 +42,7 @@ function App() {
             type="text"
             name="name"
             id="name"
+            value={name}
             placeholder="name"
             onChange={onChange}
             pattern="^.*$"
@@ -56,6 +60,7 @@ function App() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             type="text"
             pattern="^\d{1,5}$"
+            value={amount}
             required
             name="amount"
             id="amount"
@@ -68,12 +73,12 @@ function App() {
             type="submit"
             className="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            Created PDF
+            Download PDF
           </button>
         </div>
       </form>
       <div
-        className="m-4 p-4 w-[842px] h-[800px]"
+        className="m-4 p-4 w-[842px] h-[600px]"
         ref={targetRef}
         style={{
           backgroundImage: `url('/ganpati-bg.jpg')`,
@@ -81,39 +86,7 @@ function App() {
           backgroundSize: '842px 350px',
         }}
       >
-        <div className="ml-56 text-[#ddd]">
-          <h1
-            style={{
-              fontFamily: 'sanskrit',
-            }}
-            className="text-3xl"
-          >
-            Shree Ganeshaya Namah
-          </h1>
-          <h3 className="pt-4">
-            Thank you for your generous donation to the Ganapati Festival! Your
-            donation will help us to celebrate this important festival in a
-            special way. We are grateful for your support.
-          </h3>
-          <p className="pt-4">Donor Name: {name}</p>
-          <p className="pt-2">Donated Amount: {amount}</p>
-        </div>
-        <div
-          className="mt-[120px]"
-          style={{
-            height: '200px',
-            width: '842px',
-            marginLeft: '-1rem',
-          }}
-        >
-          <img
-            src="./parijat.jpeg"
-            alt="Parijat"
-            style={{
-              objectFit: 'cover',
-            }}
-          />
-        </div>
+        <Receipt name={name} amount={amount} />
       </div>
     </div>
   );
