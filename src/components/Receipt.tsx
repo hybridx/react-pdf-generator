@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Receipt({
   name,
   amount,
@@ -19,14 +18,12 @@ export default function Receipt({
         </h3>
         <div
           className="pt-4 text-xl"
-          style={
-            {
-              background: `linear-gradient(to right, #BF953F 1.28%, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%,#f6e27a 55%,#cb9b51 78%, #462523 100%)`,
-              color: 'transparent',
-              fontWeight: 700,
-              '-webkit-background-clip': 'text',
-            } as any
-          }
+          style={{
+            background: `linear-gradient(to right, #BF953F 1.28%, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%,#f6e27a 55%,#cb9b51 78%, #462523 100%)`,
+            color: 'transparent',
+            fontWeight: 700,
+            WebkitBackgroundClip: 'text',
+          }}
         >
           <p>Donor Name: {name}</p>
           <p className="pt-2">Donated Amount: {amount} ₹</p>
