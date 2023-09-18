@@ -81,7 +81,7 @@ function App() {
         className="m-4 p-4 w-[842px] h-[600px]"
         ref={targetRef}
         style={{
-          backgroundImage: `url('/ganpati-bg.jpg')`,
+          backgroundImage: `url('./ganpati-bg.jpg')`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '842px 350px',
         }}
