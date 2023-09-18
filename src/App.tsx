@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import './App.css';
-import generatePDF from 'react-to-pdf';
+import generatePDF, { Margin } from 'react-to-pdf';
 import Receipt from './components/Receipt';
 
 function App() {
@@ -25,7 +25,17 @@ function App() {
         className="border rounded-md m-5 p-5 bg-gray-100"
         onSubmit={(event) => {
           event.preventDefault();
-          generatePDF(targetRef, { filename: `${name}.pdf` });
+          generatePDF(targetRef, {
+            filename: `${name}.pdf`,
+            page: {
+              // margin is in MM, default is Margin.NONE = 0
+              margin: Margin.NONE,
+              // default is 'A4'
+              format: 'a5',
+              // default is 'portrait'
+              orientation: 'landscape',
+            },
+          });
           setName('');
           setAmount('');
         }}
